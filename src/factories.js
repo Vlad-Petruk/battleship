@@ -1,6 +1,6 @@
 const Ship = (length) => {
     const shipLength = length;
-    const hits = 0;
+    let hits = 0;
 
     function hit() {
         hits++;
@@ -17,3 +17,5 @@ const Ship = (length) => {
         isSunk
     }
 }
+
+export { Ship }
