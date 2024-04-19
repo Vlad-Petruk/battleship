@@ -11,6 +11,10 @@ describe('ship factory test', () => {
         expect(twoDeckShip.isSunk()).toBe(false)
     })
 
+    test('if updates hits', ()=>{
+        expect(twoDeckShip.getHits()).toBe(1);
+    })
+
     test('with two hits', () => {
         twoDeckShip.hit();
         twoDeckShip.hit();
@@ -19,6 +23,11 @@ describe('ship factory test', () => {
 })
 
 describe('gameboard factory test', () => {
-    const newBoard = Gameboard.gameboard;
-    test
+    const myShip = Ship(3)
+    const newBoard = Gameboard()
+    newBoard.placeShip(0,0, myShip, 'vertical');
+    newBoard.receiveAttack(0,0)
+    test('hits after succsessfull receive attack', () => {
+        expect(myShip.g).toBe(2)
+    })
 })
