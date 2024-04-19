@@ -1,3 +1,1 @@
-function safasf() {
-  aasf;
-}
+console.log('sdg')
