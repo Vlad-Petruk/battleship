@@ -1,4 +1,4 @@
-import { Ship } from "./factories"
+import { Ship, Gameboard } from "./factories"
 
 describe('ship factory test', () => {
     const twoDeckShip = Ship(2)
@@ -16,4 +16,9 @@ describe('ship factory test', () => {
         twoDeckShip.hit();
         expect(twoDeckShip.isSunk()).toBe(true)
     })
+})
+
+describe('gameboard factory test', () => {
+    const newBoard = Gameboard.gameboard;
+    test
 })
