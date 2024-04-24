@@ -157,8 +157,6 @@ const Gameboard = () => {
     }
   }
 
-  console.log(ships);
-
   return {
     gameboard,
     placeShip,

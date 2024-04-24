@@ -49,3 +49,16 @@
     flex-grow: 1;
     border: 1px solid black;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 columns */
+    grid-template-rows: repeat(10, 1fr); /* 10 rows */
+    width: 300px; /* Adjust this value according to your preference */
+    height: 300px; /* Adjust this value according to your preference */
+  }
+  
+  .container div {
+    background-color: #ccc; /* Color of the small squares */
+    border: 1px solid #000; /* Border for each small square */
+  }
