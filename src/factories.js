@@ -33,6 +33,7 @@ const Gameboard = () => {
     };
 
     const gameboard = createGameBoard();
+    const ships = [];
 
     function _isWithinBounds (index) {
         if (index < 0 || index > 9) {
@@ -46,26 +47,30 @@ const Gameboard = () => {
     // the coordinate object should have a reference to the ship in its location.
     function placeShip(col, row, ship, direction) {
         if (_isWithinBounds(col)&&_isWithinBounds(row)&&gameboard[col][row] === '') {
-            if (direction === 'vertical'&&_isWithinBounds(col+ship.length)) {
+            if (direction === 'vertical'&&_isWithinBounds(col+ship.length-1)) {
                 for (let i = col; i < col+ship.length; i++) {
                     if(gameboard[i][row] === '') {
                     gameboard[i][row] = {
                         type: `${ship.length}ship`,
                         ship: ship,
-                        value: 'O'
+                        value: 'O',
+                        isSunk: false
                     };
+                    ships.push(gameboard[i][row])
                     } else return console.log('Invalid spot')
                 }
             }
 
-            if (direction === 'horizontal'&&_isWithinBounds(row+ship.length)) {
+            if (direction === 'horizontal'&&_isWithinBounds(row+ship.length-1)) {
                 for (let i = row; i < row+ship.length; i++) {
                     if(gameboard[col][i] === '') {
                     gameboard[col][i] = {
                         type: `${ship.length}ship`,
                         ship: ship,
-                        value: 'O'
+                        value: 'O',
+                        isSunk: false
                     };
+                    ships.push(gameboard[col][i])
                     } else return console.log('Invalid spot')
                 }
             }
@@ -78,15 +83,20 @@ const Gameboard = () => {
     function receiveAttack (col, row) {
         if (_isWithinBounds(col)&&_isWithinBounds(row)) {
             let boardCell = gameboard[col][row];
-            if(boardCell === '') {
+            if (boardCell === '·') {
+                return;
+            } else if(boardCell === '') {
                 gameboard[col][row] = '·';
                 console.log('Miss')
             } else if (boardCell.value === 'O') {
                 boardCell.ship.hit();
                 boardCell.value = 'X';
-                _markCellsAroundSuccsessfullHit(col, row)
-                console.log(boardCell.ship.getHits());
-                if(boardCell.ship.isSunk()) return console.log('Sunk')
+                if (boardCell.ship.isSunk()) {
+                    boardCell.isSunk = true;
+                    _markCellsAroundSuccsessfullHit(col, row);
+                    console.log('Sunk')
+                }
+                console.log(boardCell.isSunk);
             }
 
 
@@ -141,14 +151,28 @@ const Gameboard = () => {
         }
     }
 
+    function checkEndGame() {
+        let counter = 0;
+        for (let ship of ships) {
+            if(ship.isSunk === true) {
+                counter++;
+            }
+        }
+        console.log(counter)
+        if(counter>=10) {
+            console.log('End game')
+        }
+    }
+
+    console.log(ships)
+
     return {
         gameboard,
         placeShip,
-        receiveAttack
+        receiveAttack,
+        checkEndGame
     }
 }
-
-
 
 
 export { 
