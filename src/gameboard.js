@@ -1,24 +1,4 @@
-const Ship = (shipLength) => {
-    const length = shipLength;
-    let hits = 0;
-
-    function hit() {
-        hits+=1;
-    }
-
-    function isSunk() {
-        if(shipLength <= hits) {
-            return true;
-        } else return false;
-    }
-
-    return {
-        hit,
-        isSunk,
-        length,
-        getHits: () => hits
-    }
-}
+import { Ship } from "./ship";
 
 const Gameboard = () => {
     function createGameBoard () {
@@ -174,8 +154,4 @@ const Gameboard = () => {
     }
 }
 
-
-export { 
-    Ship, 
-    Gameboard
-}
+export {Gameboard}

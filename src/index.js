@@ -1,4 +1,5 @@
-import { Gameboard, Ship } from "./factories";
+import { Gameboard } from "./gameboard";
+import { Ship } from "./ship";
 
 const myShip = Ship(4);
 const anotherShip = Ship(2)
