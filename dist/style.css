@@ -1,0 +1,51 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+::after,
+::before{
+    margin: inherit;
+    padding: inherit;
+    box-sizing: inherit;
+}
+
+.main-container{ 
+    background: rgb(186, 186, 231);
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+   font-size: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.gameboards {
+    flex-grow: 3;
+    flex-shrink: 0;
+
+    display: flex;
+}
+
+.gameboard-one {
+    flex-grow: 1;
+    border: 1px solid black;
+}
+
+.gameboard-two {
+    flex-grow: 1;
+    border: 1px solid black;
+}
