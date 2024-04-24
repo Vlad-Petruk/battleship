@@ -1,23 +1,23 @@
 const Ship = (shipLength) => {
-    const length = shipLength;
-    let hits = 0;
+  const length = shipLength;
+  let hits = 0;
 
-    function hit() {
-        hits+=1;
-    }
+  function hit() {
+    hits += 1;
+  }
 
-    function isSunk() {
-        if(shipLength <= hits) {
-            return true;
-        } else return false;
-    }
+  function isSunk() {
+    if (shipLength <= hits) {
+      return true;
+    } else return false;
+  }
 
-    return {
-        hit,
-        isSunk,
-        length,
-        getHits: () => hits
-    }
-}
+  return {
+    hit,
+    isSunk,
+    length,
+    getHits: () => hits,
+  };
+};
 
-export {Ship}
+export { Ship };
