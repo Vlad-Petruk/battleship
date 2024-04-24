@@ -10,14 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const realPlayer = Player('human');
     const compPlayer = Player('computer');
+    const threeDeckShip = Ship(3);
 
-    renderGameboard(realPlayer, playerBoardBox)
+    // realPlayer.gameboard.placeShip(0,0, threeDeckShip, 'horizontal')
 
+    renderGameboard(realPlayer, playerBoardBox);
+    renderGameboard(compPlayer, computerBoardBox)
+
+    
+
+
+    console.log(realPlayer.gameboard.gameboard)
 });
 
 
 
-// console.log(realPlayer.gameboard.gameboard)
+
 
 
 

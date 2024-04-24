@@ -43,22 +43,33 @@
 .gameboard-one {
     flex-grow: 1;
     border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .gameboard-two {
     flex-grow: 1;
     border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(10, 1fr); /* 10 columns */
-    grid-template-rows: repeat(10, 1fr); /* 10 rows */
-    width: 300px; /* Adjust this value according to your preference */
-    height: 300px; /* Adjust this value according to your preference */
+    grid-template-columns: repeat(10, 1fr); 
+    grid-template-rows: repeat(10, 1fr); 
+    width: 350px; 
+    height: 350px; 
   }
   
   .container div {
-    background-color: #ccc; /* Color of the small squares */
-    border: 1px solid #000; /* Border for each small square */
+    background-color: #ccc; 
+    border: 1px solid #000;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
   }

@@ -8,9 +8,13 @@ function renderGameboard (player, box) {
     container.classList.add('container')
     for (let i = 0; i < player.gameboard.gameboard.length; i++) {
         for (let j = 0; j < player.gameboard.gameboard[i].length; j++) {
-        //   console.log(player.gameboard.gameboard[i][j])
         const square = document.createElement('div');
         square.innerHTML = player.gameboard.gameboard[i][j];
+        square.addEventListener('click', () => {
+            player.gameboard. receiveAttack([i],[j])
+            square.innerHTML = player.gameboard.gameboard[i][j];
+
+        })
         container.appendChild(square);
         }
     }

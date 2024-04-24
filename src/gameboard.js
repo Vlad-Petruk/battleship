@@ -72,10 +72,10 @@ const Gameboard = () => {
   function receiveAttack(col, row) {
     if (_isWithinBounds(col) && _isWithinBounds(row)) {
       let boardCell = gameboard[col][row];
-      if (boardCell === "·") {
+      if (boardCell === '\u25CF') {
         return;
       } else if (boardCell === "") {
-        gameboard[col][row] = "·";
+        gameboard[col][row] = '\u25CF';
         console.log("Miss");
       } else if (boardCell.value === "O") {
         boardCell.ship.hit();
@@ -110,32 +110,32 @@ const Gameboard = () => {
         neighbours[i].value !== "O" &&
         neighbours[i].value !== "X"
       ) {
-        neighbours[i] = "·";
+        neighbours[i] = '\u25CF';
         // Update corresponding value in gameboard array
         switch (i) {
           case 0:
-            gameboard[col + 1][row] = "·";
+            gameboard[col + 1][row] = '\u25CF';
             break;
           case 1:
-            gameboard[col - 1][row] = "·";
+            gameboard[col - 1][row] = '\u25CF';
             break;
           case 2:
-            gameboard[col][row + 1] = "·";
+            gameboard[col][row + 1] = '\u25CF';
             break;
           case 3:
-            gameboard[col][row - 1] = "·";
+            gameboard[col][row - 1] = '\u25CF';
             break;
           case 4:
-            gameboard[col + 1][row + 1] = "·";
+            gameboard[col + 1][row + 1] = '\u25CF';
             break;
           case 5:
-            gameboard[col - 1][row - 1] = "·";
+            gameboard[col - 1][row - 1] = '\u25CF';
             break;
           case 6:
-            gameboard[col - 1][row + 1] = "·";
+            gameboard[col - 1][row + 1] = '\u25CF';
             break;
           case 7:
-            gameboard[col + 1][row - 1] = "·";
+            gameboard[col + 1][row - 1] = '\u25CF';
             break;
           default:
             break;
