@@ -1,6 +1,6 @@
 import { Ship } from "./ship";
 
-const Gameboard = () => {
+const Gameboard = (player) => {
   function createGameBoard() {
     const gameBoard = [];
     for (let i = 0; i <= 9; i++) {
@@ -86,6 +86,7 @@ const Gameboard = () => {
           console.log("Sunk");
         }
         console.log(boardCell.isSunk);
+        checkEndGame()
       }
     } else {
       return console.log("Attack out of board");
@@ -153,7 +154,7 @@ const Gameboard = () => {
     }
     console.log(counter);
     if (counter >= 10) {
-      console.log("End game");
+      console.log(`${player} lose`);
     }
   }
 

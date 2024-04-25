@@ -3,7 +3,7 @@ import { Gameboard } from "./gameboard"
 const Player = (playertype) => {
     const type = playertype;
 
-    const gameboard = Gameboard();
+    const gameboard = Gameboard(playertype);
 
     return {
         type,
