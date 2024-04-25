@@ -64,12 +64,20 @@
     grid-template-rows: repeat(10, 1fr); 
     width: 350px; 
     height: 350px; 
-  }
+}
   
   .container div {
-    background-color: #ccc; 
+    /* background-color: #ccc;  */
     border: 1px solid #000;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
     text-align: center;
-  }
+}
+
+.black {
+    background: #000;
+}
+
+.orange {
+    background: orangered;
+}
