@@ -3,8 +3,9 @@ import { Ship } from "./ship";
 import { Player } from "./player";
 import { renderPlayerGameboard, renderCompGameboard } from "./UI";
 
-
+let playerGameboard
 document.addEventListener('DOMContentLoaded', () => {
+    
     const playerBoardBox = document.querySelector('.gameboard-one');
     const computerBoardBox = document.querySelector('.gameboard-two');
 
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     realPlayer.gameboard.placeShip(2,6, twoShipThree, 'horizontal');
     realPlayer.gameboard.placeShip(8,4, oneShipOne, 'horizontal');
     realPlayer.gameboard.placeShip(2,2, oneShipTwo, 'horizontal');
-    realPlayer.gameboard.placeShip(7,8, oneShipThree, 'horizontal');
+    realPlayer.gameboard.placeShip(6,8, oneShipThree, 'horizontal');
     realPlayer.gameboard.placeShip(5,0, oneShipFour, 'horizontal');
 
     compPlayer.gameboard.placeShip(0,0, fourShip, 'horizontal');
@@ -46,19 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
     compPlayer.gameboard.placeShip(5,0, oneShipFour, 'horizontal');
 
     
-    const playerGameboard = renderPlayerGameboard(realPlayer, playerBoardBox);
+    playerGameboard = renderPlayerGameboard(realPlayer, playerBoardBox);
     renderCompGameboard(compPlayer, computerBoardBox)
 
     playerGameboard.render();
-    playerGameboard.attack()
-    playerGameboard.attack()
+    // playerGameboard.attack()
+    // playerGameboard.attack()
 
     // compGameboard.renderCompGameboard()
     
 
-
-    console.log(realPlayer.gameboard.gameboard)
+    console.log('dgsdg')
+    
 });
+
+export {playerGameboard}
 
 
 

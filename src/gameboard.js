@@ -83,7 +83,7 @@ const Gameboard = (player) => {
         boardCell.value = "X";
         if (boardCell.ship.isSunk()) {
           boardCell.isSunk = true;
-          _markCellsAroundSuccsessfullHit(col, row);
+          // _markCellsAroundSuccsessfullHit(col, row);
           console.log("Sunk");
         }
         console.log(boardCell.isSunk);
