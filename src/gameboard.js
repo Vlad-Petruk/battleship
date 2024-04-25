@@ -67,10 +67,11 @@ const Gameboard = (player) => {
 
     return gameboard;
   }
+  
 
   //Currently testing this in index.js
   function receiveAttack(col, row) {
-    if (_isWithinBounds(col) && _isWithinBounds(row)) {
+    if (_isWithinBounds(col) && _isWithinBounds(row)&&checkEndGame() !== true) {
       let boardCell = gameboard[col][row];
       if (boardCell === '\u25CF') {
         return;
@@ -155,6 +156,7 @@ const Gameboard = (player) => {
     console.log(counter);
     if (counter >= 10) {
       console.log(`${player} lose`);
+      return true;
     }
   }
 

@@ -45,8 +45,12 @@
     border: 1px solid black;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    gap: 40px;
+
 }
 
 .gameboard-two {
@@ -54,8 +58,15 @@
     border: 1px solid black;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    gap: 40px;
+}
+
+h2 {
+    margin-top: -70px;
 }
 
 .container {

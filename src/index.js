@@ -1,15 +1,16 @@
 import { Gameboard } from "./gameboard";
 import { Ship } from "./ship";
 import { Player } from "./player";
-import { renderGameboard } from "./UI";
+import { renderPlayerGameboard, renderCompGameboard } from "./UI";
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const playerBoardBox = document.querySelector('.gameboard-one');
     const computerBoardBox = document.querySelector('.gameboard-two');
-    const header = document.querySelector('.header');
 
     const realPlayer = Player('You');
     const compPlayer = Player('Computer');
+
     const fourShip = Ship(4)
     const threeShipOne = Ship(3);
     const threeShipTwo = Ship(3);
@@ -44,10 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
     compPlayer.gameboard.placeShip(7,8, oneShipThree, 'horizontal');
     compPlayer.gameboard.placeShip(5,0, oneShipFour, 'horizontal');
 
+    
+    const playerGameboard = renderPlayerGameboard(realPlayer, playerBoardBox);
+    renderCompGameboard(compPlayer, computerBoardBox)
 
-    renderGameboard(realPlayer, playerBoardBox);
-    renderGameboard(compPlayer, computerBoardBox)
+    playerGameboard.render();
+    playerGameboard.attack()
+    playerGameboard.attack()
 
+    // compGameboard.renderCompGameboard()
     
 
 
