@@ -1,4 +1,5 @@
 import { Ship } from "./ship";
+import { modal } from "./UI";
 
 const Gameboard = (player) => {
   function createGameBoard() {
@@ -155,6 +156,8 @@ const Gameboard = (player) => {
     }
     console.log(counter);
     if (counter >= 10) {
+      let news= modal(`${player}`);
+      news.openModal()
       console.log(`${player} lose`);
       return true;
     }

@@ -1,6 +1,7 @@
 import { playerGameboard } from ".";
 
-//Need to write end game massage, stop possibility of clicks if endGame, add functional to attack again if computer hits ship
+//Need to write end game massage, stop possibility of clicks if endGame
+
 function renderPlayerGameboard(player, box) {
     const container = document.createElement('div');
     container.classList.add('container')
@@ -87,9 +88,37 @@ function renderCompGameboard (player, box) {
     }
     box.append(container);
 }
-   
+
+const modal = (loser) => {
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+    const newGameBtn = document.querySelector(".btn");
+    newGameBtn.addEventListener('click', () => {
+        closeModal()
+    })
+
+
+    function openModal() {
+        const winMassage = document.querySelector('.win');
+        winMassage.textContent = `${loser} lost!`
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+    };
+    
+    function closeModal() {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+        location.reload()
+    };
+
+    return {openModal}
+}
+
+
+
 
 export {
     renderPlayerGameboard,
-    renderCompGameboard
+    renderCompGameboard,
+    modal
 }

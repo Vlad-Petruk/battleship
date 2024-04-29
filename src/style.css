@@ -20,6 +20,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    /* position: relative; */
 }
 
 .header {
@@ -92,3 +93,72 @@ h2 {
 .orange {
     background: orangered;
 }
+
+
+/* modal window */
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 400px;
+    padding: 1.3rem;
+    min-height: 250px;
+    position: absolute;
+    top: 30%;
+    left: 37%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    z-index: 2;
+  }
+
+  .modal h3 {
+    text-align: center;
+    }
+  
+  .modal p {
+    font-size: 1.3srem;
+    color: #777;
+    margin: 0.4rem 0 0.2rem;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .btn-open {
+    position: absolute;
+    bottom: 150px;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+  }
+
+  .hidden {
+    display: none;
+  }
