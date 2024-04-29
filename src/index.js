@@ -1,3 +1,5 @@
 import { playGame } from "./game";
 
-playGame()
+document.addEventListener('DOMContentLoaded', () => {
+    playGame()
+})

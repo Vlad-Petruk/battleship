@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-*,
-::after,
-::before{
+*{
     margin: inherit;
     padding: inherit;
     box-sizing: inherit;
@@ -24,8 +24,8 @@
 }
 
 .header {
-   font-size: 25px;
-
+    font-size: 35px;
+    font-family: "Black Ops One", system-ui;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +39,8 @@
     flex-shrink: 0;
 
     display: flex;
+    font-family: "Montserrat", sans-serif; 
+
 }
 
 .gameboard-one {
@@ -81,7 +83,7 @@ h2 {
   .container div {
     /* background-color: #ccc;  */
     border: 1px solid #000;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
 }

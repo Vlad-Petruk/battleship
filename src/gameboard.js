@@ -42,7 +42,7 @@ const Gameboard = (player) => {
               isSunk: false,
             };
             ships.push(gameboard[i][row]);
-          } else return console.log("Invalid spot");
+          } else return 2;
         }
       }
 
@@ -59,11 +59,11 @@ const Gameboard = (player) => {
               isSunk: false,
             };
             ships.push(gameboard[col][i]);
-          } else return console.log("Invalid spot");
+          } else return 2;
         }
       }
     } else {
-      return console.log("Index out of board");
+      return 2;
     }
 
     return gameboard;

@@ -1,7 +1,5 @@
 import { playerGameboard } from "./game";
 
-//Need to write end game massage, stop possibility of clicks if endGame
-
 function renderPlayerGameboard(player, box) {
     const container = document.createElement('div');
     container.classList.add('container')
@@ -72,6 +70,14 @@ function renderCompGameboard (player, box) {
     for (let i = 0; i < player.gameboard.gameboard.length; i++) {
         for (let j = 0; j < player.gameboard.gameboard[i].length; j++) {
             const square = document.createElement('div');
+            //Comented for checking random ship placement on comp board
+            
+            // if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
+            //     if(player.gameboard.gameboard[i][j].value = 'O') {
+            //         square.innerHTML = player.gameboard.gameboard[i][j].value;
+            //         square.classList.add('black')
+            //     } 
+            // } 
             container.appendChild(square);
             square.addEventListener('click', () => {
                 player.gameboard.receiveAttack([i],[j])
