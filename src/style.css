@@ -43,7 +43,7 @@
 
 .gameboard-one {
     flex-grow: 1;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     display: flex;
     flex-direction: column;
@@ -56,7 +56,7 @@
 
 .gameboard-two {
     flex-grow: 1;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     display: flex;
     flex-direction: column;

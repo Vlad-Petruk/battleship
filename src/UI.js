@@ -1,4 +1,4 @@
-import { playerGameboard } from ".";
+import { playerGameboard } from "./game";
 
 //Need to write end game massage, stop possibility of clicks if endGame
 
