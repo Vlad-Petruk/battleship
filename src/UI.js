@@ -75,10 +75,10 @@ function renderCompGameboard (player, box) {
                 //Comented for checking random ship placement on comp board
                 
                 if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
-                    if(player.gameboard.gameboard[i][j].value === 'O') {
-                        square.innerHTML = player.gameboard.gameboard[i][j].value;
-                        square.classList.add('black')
-                    } else if(player.gameboard.gameboard[i][j].value === 'X'){
+                    // if(player.gameboard.gameboard[i][j].value === 'O') {
+                    //     square.innerHTML = player.gameboard.gameboard[i][j].value;
+                    //     square.classList.add('black')
+                     if(player.gameboard.gameboard[i][j].value === 'X'){
                         player.gameboard.gameboard[i][j] = 'X'
                         square.innerHTML  = 'X';
                         square.classList.add('orange');

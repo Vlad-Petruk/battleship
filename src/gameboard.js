@@ -121,45 +121,45 @@ function _markCellsAroundSuccsessfullHit(col, row) {
         // Update corresponding value in gameboard array
       switch (i) {
         case 0:
-          if(gameboard[col + 1][row] !== 'X'&&gameboard[col + 1][row] !== undefined) {
+          if (gameboard[col + 1] !== undefined && gameboard[col + 1][row] !== 'X') {
             gameboard[col + 1][row] = '\u25CF';
-          break;
           }
+          break;
         case 1:
-          if(gameboard[col - 1][row] !== 'X'&&gameboard[col -1][row] !== undefined) {
+          if (gameboard[col - 1] !== undefined && gameboard[col - 1][row] !== 'X') {
             gameboard[col - 1][row] = '\u25CF';
-          break;
           }
+          break;
         case 2:
-          if(gameboard[col][row + 1] !== 'X'&&gameboard[col][row+1] !== undefined) {
+          if (gameboard[col][row + 1] !== undefined && gameboard[col][row + 1] !== 'X') {
             gameboard[col][row + 1] = '\u25CF';
-          break;
           }
+          break;
         case 3:
-          if(gameboard[col][row - 1] !== 'X'&&gameboard[col][row-1] !== undefined) {
+          if (gameboard[col][row - 1] !== undefined && gameboard[col][row - 1] !== 'X') {
             gameboard[col][row - 1] = '\u25CF';
-          break;
           }
+          break;
         case 4:
-          if(gameboard[col + 1][row + 1] !== 'X'&&gameboard[col + 1][row +1] !== undefined) {
+          if (gameboard[col + 1] !== undefined && gameboard[col + 1][row + 1] !== 'X') {
             gameboard[col + 1][row + 1] = '\u25CF';
-          break;
           }
+          break;
         case 5:
-          if(gameboard[col - 1][row - 1] !== 'X'&&gameboard[col -1][row-1] !== undefined) {
+          if (gameboard[col - 1] !== undefined && gameboard[col - 1][row - 1] !== 'X') {
             gameboard[col - 1][row - 1] = '\u25CF';
-          break;
           }
+          break;
         case 6:
-          if(gameboard[col - 1][row + 1] !== 'X'&&gameboard[col - 1][row+1] !== undefined) {
+          if (gameboard[col - 1] !== undefined && gameboard[col - 1][row + 1] !== 'X') {
             gameboard[col - 1][row + 1] = '\u25CF';
-          break;
           }
+          break;
         case 7:
-          if(gameboard[col + 1][row - 1] !== 'X'&&gameboard[col + 1][row-1] !== undefined) {
+          if (gameboard[col + 1] !== undefined && gameboard[col + 1][row - 1] !== 'X') {
             gameboard[col + 1][row - 1] = '\u25CF';
-          break;
           }
+          break;
         default:
           break;
       }
