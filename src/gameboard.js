@@ -1,4 +1,3 @@
-import { Ship } from "./ship";
 import { modal } from "./UI";
 
 const Gameboard = (player) => {
@@ -25,14 +24,13 @@ const Gameboard = (player) => {
   }
 
   //start and end here - indexes of the bord's cells where i want to place ship
-  // the coordinate object should have a reference to the ship in its location.
   function placeShip(col, row, ship, direction) {
     if (_isWithinBounds(col) && _isWithinBounds(row) && !_checkCellsAround(col, row)) {
         if (direction === "vertical" && _isWithinBounds(col + ship.length - 1)&&!_checkCellsAround(col + ship.length - 1, row)) {
             for (let i = col; i < col + ship.length; i++) {
                 if (gameboard[i][row] === "" ) {
                     gameboard[i][row] = {
-                        type: `${ship.length}ship`,
+                        type: `${player}${ship.length}ship`,
                         ship: ship,
                         value: "O",
                         isSunk: false,
@@ -44,7 +42,7 @@ const Gameboard = (player) => {
             for (let i = row; i < row + ship.length; i++) {
                 if (gameboard[col][i] === "") {
                     gameboard[col][i] = {
-                        type: `${ship.length}ship`,
+                        type: `${player}${ship.length}ship`,
                         ship: ship,
                         value: "O",
                         isSunk: false,
@@ -62,19 +60,16 @@ const Gameboard = (player) => {
 
   //Currently testing this in index.js
   function receiveAttack(col, row) {
-    if (_isWithinBounds(col) && _isWithinBounds(row)&&checkEndGame() !== true) {
+    if (_isWithinBounds(col) && _isWithinBounds(row)) {
       let boardCell = gameboard[col][row];
-      if (boardCell === '\u25CF') {
-        return;
-      } else if (boardCell === "") {
+        if (boardCell === "") {
         gameboard[col][row] = '\u25CF';
-        console.log("Miss");
       } else if (boardCell.value === "O") {
         boardCell.ship.hit();
         boardCell.value = "X";
         if (boardCell.ship.isSunk()) {
           boardCell.isSunk = true;
-          // _markCellsAroundSuccsessfullHit(col, row);
+          _markCellsAroundSuccsessfullHit(col, row);
           console.log("Sunk");
         }
         console.log(boardCell.isSunk);
@@ -105,67 +100,85 @@ const Gameboard = (player) => {
   return false
 }
 
-  function _markCellsAroundSuccsessfullHit(col, row) {
-    const neighbours = [
-      gameboard[col + 1]?.[row],
-      gameboard[col - 1]?.[row],
-      gameboard[col]?.[row + 1],
-      gameboard[col]?.[row - 1],
-      gameboard[col + 1]?.[row + 1],
-      gameboard[col - 1]?.[row - 1],
-      gameboard[col - 1]?.[row + 1],
-      gameboard[col + 1]?.[row - 1],
-    ];
+//Need to mark not only around one cell
+function _markCellsAroundSuccsessfullHit(col, row) {
+  const neighbours = [
+    gameboard[col + 1]?.[row],
+    gameboard[col - 1]?.[row],
+    gameboard[col]?.[row + 1],
+    gameboard[col]?.[row - 1],
+    gameboard[col + 1]?.[row + 1],
+    gameboard[col - 1]?.[row - 1],
+    gameboard[col - 1]?.[row + 1],
+    gameboard[col + 1]?.[row - 1],
+  ];
 
-    for (let i = 0; i < neighbours.length; i++) {
-      if (
-        neighbours[i] !== undefined &&
-        neighbours[i].value !== "O" &&
-        neighbours[i].value !== "X"
-      ) {
-        neighbours[i] = '\u25CF';
+  for (let i = 0; i < neighbours.length; i++) {
+    if (
+      neighbours[i] !== undefined &&
+      neighbours[i].value !== "O") {
+      neighbours[i] = '\u25CF';
         // Update corresponding value in gameboard array
-        switch (i) {
-          case 0:
+      switch (i) {
+        case 0:
+          if(gameboard[col + 1][row] !== 'X'&&gameboard[col + 1][row] !== undefined) {
             gameboard[col + 1][row] = '\u25CF';
-            break;
-          case 1:
+          break;
+          }
+        case 1:
+          if(gameboard[col - 1][row] !== 'X'&&gameboard[col -1][row] !== undefined) {
             gameboard[col - 1][row] = '\u25CF';
-            break;
-          case 2:
+          break;
+          }
+        case 2:
+          if(gameboard[col][row + 1] !== 'X'&&gameboard[col][row+1] !== undefined) {
             gameboard[col][row + 1] = '\u25CF';
-            break;
-          case 3:
+          break;
+          }
+        case 3:
+          if(gameboard[col][row - 1] !== 'X'&&gameboard[col][row-1] !== undefined) {
             gameboard[col][row - 1] = '\u25CF';
-            break;
-          case 4:
+          break;
+          }
+        case 4:
+          if(gameboard[col + 1][row + 1] !== 'X'&&gameboard[col + 1][row +1] !== undefined) {
             gameboard[col + 1][row + 1] = '\u25CF';
-            break;
-          case 5:
+          break;
+          }
+        case 5:
+          if(gameboard[col - 1][row - 1] !== 'X'&&gameboard[col -1][row-1] !== undefined) {
             gameboard[col - 1][row - 1] = '\u25CF';
-            break;
-          case 6:
+          break;
+          }
+        case 6:
+          if(gameboard[col - 1][row + 1] !== 'X'&&gameboard[col - 1][row+1] !== undefined) {
             gameboard[col - 1][row + 1] = '\u25CF';
-            break;
-          case 7:
+          break;
+          }
+        case 7:
+          if(gameboard[col + 1][row - 1] !== 'X'&&gameboard[col + 1][row-1] !== undefined) {
             gameboard[col + 1][row - 1] = '\u25CF';
-            break;
-          default:
-            break;
-        }
+          break;
+          }
+        default:
+          break;
       }
-    }
+      
+    } else console.log('asfasf')
   }
+}
 
   function checkEndGame() {
     let counter = 0;
-    for (let ship of ships) {
-      if (ship.isSunk === true) {
-        counter++;
-      }
+    for (let i = ships.length - 1; i >= 0; i--) {
+      if (ships[i].ship.isSunk() === true) {
+        counter++ ;
+        // console.log(`${player} - Ship ${i} is sunk`);
     }
+   }
+  //  console.log(ships)
     console.log(counter);
-    if (counter >= 10) {
+    if (counter >= 20) {
       let news= modal(`${player}`);
       news.openModal()
       console.log(`${player} lose`);

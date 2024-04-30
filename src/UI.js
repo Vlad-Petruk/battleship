@@ -79,13 +79,20 @@ function renderCompGameboard (player, box) {
                         square.innerHTML = player.gameboard.gameboard[i][j].value;
                         square.classList.add('black')
                     } else if(player.gameboard.gameboard[i][j].value === 'X'){
-                        square.innerHTML = player.gameboard.gameboard[i][j].value;
+                        player.gameboard.gameboard[i][j] = 'X'
+                        square.innerHTML  = 'X';
                         square.classList.add('orange');
                     }
-                } else{square.innerHTML = player.gameboard.gameboard[i][j]; }
+                } else if (player.gameboard.gameboard[i][j] === 'X'){
+                    square.innerHTML = player.gameboard.gameboard[i][j];
+                    square.classList.add('orange');;
+                 }
+                else{
+                    square.innerHTML = player.gameboard.gameboard[i][j]; 
+                }
                 square.addEventListener('click', () => {
-                    if(square.textContent !=='\u25CF') {
-                        player.gameboard.receiveAttack([i],[j])
+                    if(square.textContent !=='\u25CF'&&square.textContent !=="X") {
+                        player.gameboard.receiveAttack(i,j)
                         if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
                             render()
                         } else {
