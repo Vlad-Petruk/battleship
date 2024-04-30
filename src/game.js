@@ -21,23 +21,28 @@ function playGame () {
     const oneShipThree = Ship(1);
     const oneShipFour = Ship(1);
 
+    const fourShipComp = Ship(4)
+    const threeShipOneComp = Ship(3);
+    const threeShipTwoComp = Ship(3);
+    const twoShipOneComp = Ship(2);
+    const twoShipTwoComp = Ship(2);
+    const twoShipThreeComp = Ship(2);
+    const oneShipOneComp = Ship(1);
+    const oneShipTwoComp = Ship(1);
+    const oneShipThreeComp = Ship(1);
+    const oneShipFourComp = Ship(1);
+
     const ships = [fourShip, threeShipOne, threeShipTwo, twoShipOne,twoShipTwo, twoShipThree, oneShipOne, oneShipTwo, oneShipThree, oneShipFour]
+
+    const shipsComp = [fourShipComp, threeShipOneComp, threeShipTwoComp, twoShipOneComp,twoShipTwoComp, twoShipThreeComp, oneShipOneComp, oneShipTwoComp, oneShipThreeComp, oneShipFourComp]
 
     function getRandomString(string1, string2) {
         return Math.random() < 0.5 ? string1 : string2;
     }
-    // function renderShip(gameboard, col, row) {
-    //     const horizontal = 'horizontal';
-    //     const vertical = 'vertical';
-    //     let orientation = getRandomString(horizontal,vertical)
-    //     ships.forEach((ship)=> {
-    //         gameboard.gameboard.placeShip(col, row, ship, orientation)
-    //     })
-    // }
 
     //Renders all ships but the ships touch each other on the board 
     //Need to update placeShip
-    function renderShip(gameboard) {
+    function renderShip(gameboard,ships) {
         const horizontal = 'horizontal';
         const vertical = 'vertical';
         
@@ -57,8 +62,8 @@ function playGame () {
     }
     
 
-    renderShip(realPlayer);
-    renderShip(compPlayer)
+    renderShip(realPlayer,ships);
+    renderShip(compPlayer, shipsComp)
     // realPlayer.gameboard.placeShip(0,0, fourShip, 'horizontal');
     // realPlayer.gameboard.placeShip(9,6, threeShipOne, 'horizontal');
     // realPlayer.gameboard.placeShip(0,9, threeShipTwo, 'vertical');
