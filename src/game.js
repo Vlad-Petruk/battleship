@@ -40,11 +40,12 @@ function playGame () {
     function renderShip(gameboard) {
         const horizontal = 'horizontal';
         const vertical = 'vertical';
-        let orientation = getRandomString(horizontal, vertical);
+        
     
         ships.forEach((ship) => {
             let shipPlaced = false;
             while (!shipPlaced) {
+                let orientation = getRandomString(horizontal, vertical);
                 let col = Math.floor(Math.random() * 10); 
                 let row = Math.floor(Math.random() * 10); 
                 let result = gameboard.gameboard.placeShip(col, row, ship, orientation);
@@ -56,7 +57,8 @@ function playGame () {
     }
     
 
-    renderShip(realPlayer)
+    renderShip(realPlayer);
+    renderShip(compPlayer)
     // realPlayer.gameboard.placeShip(0,0, fourShip, 'horizontal');
     // realPlayer.gameboard.placeShip(9,6, threeShipOne, 'horizontal');
     // realPlayer.gameboard.placeShip(0,9, threeShipTwo, 'vertical');
@@ -68,16 +70,16 @@ function playGame () {
     // realPlayer.gameboard.placeShip(6,8, oneShipThree, 'horizontal');
     // realPlayer.gameboard.placeShip(5,0, oneShipFour, 'horizontal');
 
-    compPlayer.gameboard.placeShip(0,0, fourShip, 'horizontal');
-    compPlayer.gameboard.placeShip(9,6, threeShipOne, 'horizontal');
-    compPlayer.gameboard.placeShip(0,9, threeShipTwo, 'vertical');
-    compPlayer.gameboard.placeShip(8,0, twoShipOne, 'horizontal');
-    compPlayer.gameboard.placeShip(5,4, twoShipTwo, 'vertical');
-    compPlayer.gameboard.placeShip(2,6, twoShipThree, 'horizontal');
-    compPlayer.gameboard.placeShip(8,4, oneShipOne, 'horizontal');
-    compPlayer.gameboard.placeShip(2,2, oneShipTwo, 'horizontal');
-    compPlayer.gameboard.placeShip(7,8, oneShipThree, 'horizontal');
-    compPlayer.gameboard.placeShip(5,0, oneShipFour, 'horizontal');
+    // compPlayer.gameboard.placeShip(0,0, fourShip, 'horizontal');
+    // compPlayer.gameboard.placeShip(9,6, threeShipOne, 'horizontal');
+    // compPlayer.gameboard.placeShip(0,9, threeShipTwo, 'vertical');
+    // compPlayer.gameboard.placeShip(8,0, twoShipOne, 'horizontal');
+    // compPlayer.gameboard.placeShip(5,4, twoShipTwo, 'vertical');
+    // compPlayer.gameboard.placeShip(2,6, twoShipThree, 'horizontal');
+    // compPlayer.gameboard.placeShip(8,4, oneShipOne, 'horizontal');
+    // compPlayer.gameboard.placeShip(2,2, oneShipTwo, 'horizontal');
+    // compPlayer.gameboard.placeShip(7,8, oneShipThree, 'horizontal');
+    // compPlayer.gameboard.placeShip(5,0, oneShipFour, 'horizontal');
 
 
     playerGameboard = renderPlayerGameboard(realPlayer, playerBoardBox);

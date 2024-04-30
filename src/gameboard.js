@@ -27,47 +27,37 @@ const Gameboard = (player) => {
   //start and end here - indexes of the bord's cells where i want to place ship
   // the coordinate object should have a reference to the ship in its location.
   function placeShip(col, row, ship, direction) {
-    if (
-      _isWithinBounds(col) &&
-      _isWithinBounds(row) &&
-      gameboard[col][row] === ""
-    ) {
-      if (direction === "vertical" && _isWithinBounds(col + ship.length - 1)) {
-        for (let i = col; i < col + ship.length; i++) {
-          if (gameboard[i][row] === "") {
-            gameboard[i][row] = {
-              type: `${ship.length}ship`,
-              ship: ship,
-              value: "O",
-              isSunk: false,
-            };
-            ships.push(gameboard[i][row]);
-          } else return 2;
-        }
-      }
-
-      if (
-        direction === "horizontal" &&
-        _isWithinBounds(row + ship.length - 1)
-      ) {
-        for (let i = row; i < row + ship.length; i++) {
-          if (gameboard[col][i] === "") {
-            gameboard[col][i] = {
-              type: `${ship.length}ship`,
-              ship: ship,
-              value: "O",
-              isSunk: false,
-            };
-            ships.push(gameboard[col][i]);
-          } else return 2;
-        }
-      }
-    } else {
-      return 2;
-    }
+    if (_isWithinBounds(col) && _isWithinBounds(row) && !_checkCellsAround(col, row)) {
+        if (direction === "vertical" && _isWithinBounds(col + ship.length - 1)&&!_checkCellsAround(col + ship.length - 1, row)) {
+            for (let i = col; i < col + ship.length; i++) {
+                if (gameboard[i][row] === "" ) {
+                    gameboard[i][row] = {
+                        type: `${ship.length}ship`,
+                        ship: ship,
+                        value: "O",
+                        isSunk: false,
+                    };
+                    ships.push(gameboard[i][row]);
+                } else return 2; 
+            }
+        } else if (direction === "horizontal" && _isWithinBounds(row + ship.length - 1)&&!_checkCellsAround(col, row + ship.length - 1)) {
+            for (let i = row; i < row + ship.length; i++) {
+                if (gameboard[col][i] === "") {
+                    gameboard[col][i] = {
+                        type: `${ship.length}ship`,
+                        ship: ship,
+                        value: "O",
+                        isSunk: false,
+                    };
+                    ships.push(gameboard[col][i]);
+                } else return 2; 
+            }
+        } else return 2; 
+    } else return 2; 
 
     return gameboard;
-  }
+}
+
   
 
   //Currently testing this in index.js
@@ -94,6 +84,26 @@ const Gameboard = (player) => {
       return console.log("Attack out of board");
     }
   }
+
+  function _checkCellsAround(col, row) {
+    const neighbours = [
+      gameboard[col + 1]?.[row],
+      gameboard[col - 1]?.[row],
+      gameboard[col]?.[row + 1],
+      gameboard[col]?.[row - 1],
+      gameboard[col + 1]?.[row + 1],
+      gameboard[col - 1]?.[row - 1],
+      gameboard[col - 1]?.[row + 1],
+      gameboard[col + 1]?.[row - 1],
+    ];
+
+    for (let i = 0; i < neighbours.length; i++) {
+      if (neighbours[i] && neighbours[i].value === "O") {
+        return true;
+    }
+  } 
+  return false
+}
 
   function _markCellsAroundSuccsessfullHit(col, row) {
     const neighbours = [
@@ -171,4 +181,4 @@ const Gameboard = (player) => {
   };
 };
 
-export { Gameboard };
+export { Gameboard }
