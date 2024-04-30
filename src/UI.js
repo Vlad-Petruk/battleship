@@ -9,7 +9,7 @@ function renderPlayerGameboard(player, box) {
             for (let j = 0; j < player.gameboard.gameboard[i].length; j++) {
                 const square = document.createElement('div');
                 if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
-                    if(player.gameboard.gameboard[i][j].value = 'O') {
+                    if(player.gameboard.gameboard[i][j].value === 'O') {
                         square.innerHTML = player.gameboard.gameboard[i][j].value;
                         square.classList.add('black')
                     } 
@@ -66,33 +66,40 @@ function renderPlayerGameboard(player, box) {
 
 function renderCompGameboard (player, box) {
     const container = document.createElement('div');
-    container.classList.add('container')
-    for (let i = 0; i < player.gameboard.gameboard.length; i++) {
-        for (let j = 0; j < player.gameboard.gameboard[i].length; j++) {
-            const square = document.createElement('div');
-            //Comented for checking random ship placement on comp board
-            
-            // if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
-            //     if(player.gameboard.gameboard[i][j].value = 'O') {
-            //         square.innerHTML = player.gameboard.gameboard[i][j].value;
-            //         square.classList.add('black')
-            //     } 
-            // } 
-            container.appendChild(square);
-            square.addEventListener('click', () => {
-                player.gameboard.receiveAttack([i],[j])
+     container.classList.add('container')
+    function render () {
+        container.textContent = '';
+        for (let i = 0; i < player.gameboard.gameboard.length; i++) {
+            for (let j = 0; j < player.gameboard.gameboard[i].length; j++) {
+                const square = document.createElement('div');
+                //Comented for checking random ship placement on comp board
+                
                 if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
-                    square.innerHTML = player.gameboard.gameboard[i][j].value;
-                    square.classList.add('orange');
-                } else {
-                    square.innerHTML = player.gameboard.gameboard[i][j];
-                    setTimeout(playerGameboard.attack,1000);
-                    playerGameboard.render()
-                }
-            })
-        }
+                    if(player.gameboard.gameboard[i][j].value === 'O') {
+                        square.innerHTML = player.gameboard.gameboard[i][j].value;
+                        square.classList.add('black')
+                    } else if(player.gameboard.gameboard[i][j].value === 'X'){
+                        square.innerHTML = player.gameboard.gameboard[i][j].value;
+                        square.classList.add('orange');
+                    }
+                } else{square.innerHTML = player.gameboard.gameboard[i][j]; }
+                square.addEventListener('click', () => {
+                    if(square.textContent !=='\u25CF') {
+                        player.gameboard.receiveAttack([i],[j])
+                        if(typeof(player.gameboard.gameboard[i][j]) === 'object') {
+                            render()
+                        } else {
+                            render()
+                            setTimeout(playerGameboard.attack,1000);
+                            playerGameboard.render()
+                        }
+                    }
+                })
+                container.appendChild(square);
+            }
+        } box.append(container);
     }
-    box.append(container);
+    render()
 }
 
 const modal = (loser) => {
