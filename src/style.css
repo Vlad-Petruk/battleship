@@ -1,166 +1,163 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{
-    margin: inherit;
-    padding: inherit;
-    box-sizing: inherit;
+* {
+  margin: inherit;
+  padding: inherit;
+  box-sizing: inherit;
 }
 
-.main-container{ 
-    background: rgb(186, 186, 231);
+.main-container {
+  background: rgb(186, 186, 231);
 }
 
 .content {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* position: relative; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* position: relative; */
 }
 
 .header {
-    font-size: 35px;
-    font-family: "Black Ops One", system-ui;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 35px;
+  font-family: "Black Ops One", system-ui;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    flex-grow: 1;
-    flex-shrink: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .gameboards {
-    flex-grow: 3;
-    flex-shrink: 0;
+  flex-grow: 3;
+  flex-shrink: 0;
 
-    display: flex;
-    font-family: "Montserrat", sans-serif; 
-
+  display: flex;
+  font-family: "Montserrat", sans-serif;
 }
 
 .gameboard-one {
-    flex-grow: 1;
-    /* border: 1px solid black; */
+  flex-grow: 1;
+  /* border: 1px solid black; */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    gap: 40px;
-
+  gap: 40px;
 }
 
 .gameboard-two {
-    flex-grow: 1;
-    /* border: 1px solid black; */
+  flex-grow: 1;
+  /* border: 1px solid black; */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    gap: 40px;
+  gap: 40px;
 }
 
 h2 {
-    margin-top: -70px;
+  margin-top: -70px;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr); 
-    grid-template-rows: repeat(10, 1fr); 
-    width: 350px; 
-    height: 350px; 
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 350px;
+  height: 350px;
 }
-  
-  .container div {
-    /* background-color: #ccc;  */
-    border: 1px solid #000;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
+
+.container div {
+  /* background-color: #ccc;  */
+  border: 1px solid #000;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .black {
-    background: #000;
+  background: #000;
 }
 
 .orange {
-    background: orangered;
+  background: orangered;
 }
-
 
 /* modal window */
 
 .modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.4rem;
-    width: 400px;
-    padding: 1.3rem;
-    min-height: 250px;
-    position: absolute;
-    top: 30%;
-    left: 37%;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    z-index: 2;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 400px;
+  padding: 1.3rem;
+  min-height: 250px;
+  position: absolute;
+  top: 30%;
+  left: 37%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
+}
 
-  .modal h3 {
-    text-align: center;
-    }
-  
-  .modal p {
-    font-size: 1.3srem;
-    color: #777;
-    margin: 0.4rem 0 0.2rem;
-  }
-  
-  button {
-    cursor: pointer;
-    border: none;
-    font-weight: 600;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 0.8rem 1.4rem;
-    font-weight: 700;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1em;
-  }
-  
-  .btn-open {
-    position: absolute;
-    bottom: 150px;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
-    z-index: 1;
-  }
+.modal h3 {
+  text-align: center;
+}
 
-  .hidden {
-    display: none;
-  }
+.modal p {
+  font-size: 1.3srem;
+  color: #777;
+  margin: 0.4rem 0 0.2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.btn-open {
+  position: absolute;
+  bottom: 150px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}

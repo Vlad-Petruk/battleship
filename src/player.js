@@ -1,14 +1,14 @@
-import { Gameboard } from "./gameboard"
+import { Gameboard } from "./gameboard";
 
 const Player = (playertype) => {
-    const type = playertype;
+  const type = playertype;
 
-    const gameboard = Gameboard(playertype);
+  const gameboard = Gameboard(playertype);
 
-    return {
-        type,
-        gameboard
-    }
-}
+  return {
+    type,
+    gameboard,
+  };
+};
 
-export {Player}
+export { Player };
