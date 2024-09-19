@@ -5,6 +5,8 @@ It was created as part of [The Odin Project](https://www.theodinproject.com) cou
 In this project, I practiced writing complex game logic using factory functions 
 and explored implementing Jest testing.
 
+## Live Demo
+You can view the live version of the project [here](https://battleship-vlad-petruks-projects.vercel.app/).
 
 ## Skills Practiced
 - JavaScript (ES6)
